@@ -33,7 +33,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-6"
             >
-              Need a Hero?{" "}
+              Need a Law?{" "}
               <span className="text-gradient-gold">Call Shapiro</span>
             </motion.h1>
 
