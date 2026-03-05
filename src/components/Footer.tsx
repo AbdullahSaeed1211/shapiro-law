@@ -11,7 +11,7 @@ const Footer = () => {
             <span className="text-2xl font-serif font-bold text-foreground">SHAPIRO</span>
             <p className="text-xs text-primary tracking-[0.2em] uppercase font-sans">Law Office</p>
             <p className="text-sm text-muted-foreground font-sans mt-4 leading-relaxed">
-              Over 30 years fighting for injury victims across New York. Your hero in the courtroom.
+              Over 30 years fighting for injury victims across New York. Your law firm in the courtroom.
             </p>
           </div>
 
