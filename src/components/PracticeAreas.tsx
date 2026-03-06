@@ -33,7 +33,7 @@ const PracticeAreas = () => {
               transition={{ delay: i * 0.1 }}
             >
               <Link
-                to="/services"
+                to={`/services/${area.slug}`}
                 className="group block bg-card border border-border rounded-lg p-8 hover:border-primary/40 hover:shadow-gold transition-all duration-300 h-full"
               >
                 <area.icon className="w-10 h-10 text-primary mb-5 group-hover:scale-110 transition-transform" />
