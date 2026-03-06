@@ -1,44 +1,8 @@
 import { motion } from "framer-motion";
-import { Car, HardHat, Stethoscope, Scale, Zap, AlertTriangle, ShieldAlert } from "lucide-react";
 import { Link } from "react-router-dom";
+import { services } from "@/data/services";
 
-const areas = [
-  {
-    icon: Car,
-    title: "Motor Vehicle Accidents",
-    description: "We fight for victims of reckless drivers, securing compensation for medical bills, lost wages, and pain/suffering.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Slip/Trip & Fall",
-    description: "When property owners neglect safety, we hold them accountable for fractures, head trauma, and spinal injuries.",
-  },
-  {
-    icon: HardHat,
-    title: "Construction Accidents",
-    description: "Construction sites are dangerous workplaces. We fight for workers injured due to preventable accidents.",
-  },
-  {
-    icon: Stethoscope,
-    title: "Medical Malpractice",
-    description: "We sue for surgical errors, misdiagnoses, and birth injuries. Our medical experts reconstruct negligence.",
-  },
-  {
-    icon: Scale,
-    title: "Wrongful Death",
-    description: "For families devastated by negligence, we seek justice through funeral expense coverage and loss-of-support damages.",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Workers Compensation",
-    description: "Protecting your rights and lost wages after workplace injuries with aggressive legal representation.",
-  },
-  {
-    icon: Zap,
-    title: "E-Bike & Scooter Accidents",
-    description: "Specialized representation for electric bicycle and scooter crash victims across New York.",
-  },
-];
+const areas = services.slice(0, 7);
 
 const PracticeAreas = () => {
   return (
@@ -69,7 +33,7 @@ const PracticeAreas = () => {
               transition={{ delay: i * 0.1 }}
             >
               <Link
-                to="/services"
+                to={`/services/${area.slug}`}
                 className="group block bg-card border border-border rounded-lg p-8 hover:border-primary/40 hover:shadow-gold transition-all duration-300 h-full"
               >
                 <area.icon className="w-10 h-10 text-primary mb-5 group-hover:scale-110 transition-transform" />
