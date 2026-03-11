@@ -1,13 +1,16 @@
+"use client";
+
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Shield, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-40 pb-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="New York City skyline" className="w-full h-full object-cover" />
+        <Image src={heroBg} alt="New York City skyline" className="w-full h-full object-cover" fill />
         <div className="absolute inset-0 bg-background/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
       </div>
@@ -96,22 +99,26 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="hidden lg:block"
           >
-            <div className="bg-card border border-border rounded-lg p-8 shadow-gold">
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-2">Book Free Consultation</h3>
-              <p className="text-muted-foreground font-sans text-sm mb-6">Get expert legal advice — no obligation</p>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="glass border border-primary/20 rounded-2xl p-10 shadow-gold glow-gold"
+            >
+              <h3 className="text-3xl font-serif font-bold text-foreground mb-2">Book Free Consultation</h3>
+              <p className="text-muted-foreground font-sans text-base mb-8">Get expert legal advice — no obligation</p>
 
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full bg-secondary border border-border rounded px-4 py-3 text-foreground font-sans placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-4 text-foreground font-sans placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full bg-secondary border border-border rounded px-4 py-3 text-foreground font-sans placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-4 text-foreground font-sans placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 />
-                <select className="w-full bg-secondary border border-border rounded px-4 py-3 text-muted-foreground font-sans focus:outline-none focus:ring-1 focus:ring-primary">
+                <select className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-4 text-muted-foreground font-sans focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none">
                   <option>Type of Case</option>
                   <option>Motor Vehicle Accident</option>
                   <option>Slip/Trip & Fall</option>
@@ -120,7 +127,7 @@ const HeroSection = () => {
                   <option>Medical Malpractice</option>
                   <option>Wrongful Death</option>
                 </select>
-                <select className="w-full bg-secondary border border-border rounded px-4 py-3 text-muted-foreground font-sans focus:outline-none focus:ring-1 focus:ring-primary">
+                <select className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-4 text-muted-foreground font-sans focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none">
                   <option>Preferred Time</option>
                   <option>Morning</option>
                   <option>Afternoon</option>
@@ -128,21 +135,19 @@ const HeroSection = () => {
                 </select>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-gold text-primary-foreground font-sans font-bold py-4 rounded text-lg hover:opacity-90 transition-opacity"
+                  className="w-full bg-gradient-gold text-primary-foreground font-sans font-bold py-5 rounded-lg text-lg hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
                 >
                   Book Appointment
                 </button>
               </form>
 
-              <p className="text-center text-xs text-muted-foreground font-sans mt-4">
+              <p className="text-center text-sm text-muted-foreground font-sans mt-6">
                 100% Secure & Confidential
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

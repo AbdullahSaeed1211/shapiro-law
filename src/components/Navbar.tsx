@@ -1,18 +1,21 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "About Us", to: "/about" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -29,7 +32,7 @@ const Navbar = () => {
 
       {/* Main nav */}
       <div className="container flex items-center justify-between py-4">
-        <Link to="/" className="flex flex-col">
+        <Link href="/" className="flex flex-col">
           <span className="text-2xl font-serif font-bold text-foreground tracking-tight">SHAPIRO</span>
           <span className="text-xs font-sans text-primary tracking-[0.2em] uppercase">Law Office</span>
         </Link>
@@ -38,10 +41,10 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
-              key={link.to}
-              to={link.to}
+              key={link.href}
+              href={link.href}
               className={`font-sans text-sm uppercase tracking-wider transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                pathname === link.href ? "text-primary" : "text-muted-foreground"
               }`}
             >
               {link.label}
@@ -73,8 +76,8 @@ const Navbar = () => {
             <div className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link.to}
-                  to={link.to}
+                  key={link.href}
+                  href={link.href}
                   onClick={() => setOpen(false)}
                   className="font-sans text-lg text-foreground hover:text-primary transition-colors"
                 >
@@ -93,6 +96,4 @@ const Navbar = () => {
       </AnimatePresence>
     </nav>
   );
-};
-
-export default Navbar;
+}

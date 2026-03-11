@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="bg-secondary/50 border-t border-border">
       <div className="container py-16">
@@ -20,7 +22,7 @@ const Footer = () => {
             <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-wider mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
               {["Home", "Services", "About Us", "Contact"].map((l) => (
-                <Link key={l} to={l === "Home" ? "/" : `/${l.toLowerCase().replace(" ", "-")}`} className="text-muted-foreground font-sans text-sm hover:text-primary transition-colors">
+                <Link key={l} href={l === "Home" ? "/" : `/${l.toLowerCase().replace(" ", "-")}`} className="text-muted-foreground font-sans text-sm hover:text-primary transition-colors">
                   {l}
                 </Link>
               ))}
@@ -32,7 +34,7 @@ const Footer = () => {
             <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-wider mb-4">Practice Areas</h4>
             <div className="flex flex-col gap-2">
               {["Motor Vehicle", "Slip & Fall", "Construction", "Medical Malpractice", "Workers Comp"].map((a) => (
-                <Link key={a} to="/services" className="text-muted-foreground font-sans text-sm hover:text-primary transition-colors">
+                <Link key={a} href="/services" className="text-muted-foreground font-sans text-sm hover:text-primary transition-colors">
                   {a}
                 </Link>
               ))}
@@ -65,6 +67,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,33 +1,117 @@
-# Welcome to your Lovable project
+# Shapiro Law Office - Next.js
 
-## Project info
+A modern legal services website for Shapiro Law Office, built with Next.js, React, and TypeScript.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Getting Started
 
-## How can I edit this code?
+### Prerequisites
+- Node.js 18+ (LTS recommended)
+- npm or yarn
 
-There are several ways of editing your application.
+### Installation
 
-**Use Lovable**
+```bash
+# Install dependencies
+npm install
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+# Run the development server
+npm run dev
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-**Use your preferred IDE**
+### Build & Deploy
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Build for production
+npm run build
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Start production server
+npm start
+```
 
-Follow these steps:
+## Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```
+shapiro-laws/
+├── app/                    # Next.js app directory
+│   ├── (home)/            # Home page route group
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   ├── services/          # Services listing
+│   │   └── [slug]/        # Service detail (dynamic route)
+│   ├── layout.tsx         # Root layout
+│   ├── providers.tsx      # React Context providers
+│   └── not-found.tsx      # 404 page
+├── src/
+│   ├── components/        # React components
+│   ├── data/             # Data files and constants
+│   ├── lib/              # Utility functions
+│   ├── index.css         # Global styles
+│   └── assets/           # Images and static files
+├── public/               # Static files
+├── next.config.ts        # Next.js configuration
+├── tsconfig.json         # TypeScript configuration
+├── tailwind.config.ts    # Tailwind CSS configuration
+└── package.json          # Dependencies
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Technologies Used
+
+- **Framework**: [Next.js 15](https://nextjs.org/)
+- **UI Library**: [React 18](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Notifications**: [Sonner](https://sonner.emilkowal.sk/)
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+
+## Conversion from Vite to Next.js
+
+This project was converted from a Vite-based React application to Next.js. Key changes:
+
+1. **Routing**: Moved from React Router to Next.js App Router
+2. **File Structure**: Reorganized from `src/pages/` to `app/`
+3. **Components**: Updated `Link` components from react-router to Next.js
+4. **Configuration**: Replaced `vite.config.ts` with `next.config.ts`
+5. **Dependencies**: Removed `react-router-dom`, added `next`
+6. **Build Scripts**: Updated from Vite commands to Next.js commands
+
+## Features
+
+- Responsive design
+- Dark/Light mode support
+- Multiple practice areas showcase
+- Service detail pages
+- Contact form
+- Testimonials section
+- CTA sections
+- 24/7 availability messaging
+
+## Development
+
+The project uses:
+- **ESLint** for code quality
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **shadcn/ui** for component library
+
+## License
+
+This project is proprietary and confidential.
+
 
 # Step 3: Install the necessary dependencies.
 npm i

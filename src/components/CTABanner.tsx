@@ -1,7 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Phone, Clock, ShieldCheck } from "lucide-react";
 
-const CTABanner = () => {
+export default function CTABanner() {
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-gold opacity-10" />
@@ -36,6 +38,4 @@ const CTABanner = () => {
       </div>
     </section>
   );
-};
-
-export default CTABanner;
+}

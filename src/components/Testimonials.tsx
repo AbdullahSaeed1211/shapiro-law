@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
@@ -19,7 +21,7 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => {
+export default function Testimonials() {
   return (
     <section className="section-padding bg-secondary/30">
       <div className="container">
@@ -67,6 +69,4 @@ const Testimonials = () => {
       </div>
     </section>
   );
-};
-
-export default Testimonials;
+}

@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, Clock, DollarSign, Users, MessageSquare, Shield } from "lucide-react";
 import attorneyImg from "@/assets/attorney-portrait.jpg";
@@ -11,7 +14,7 @@ const features = [
   { icon: MessageSquare, title: "Proven Results", text: "Positive client testimonials and peer endorsements across New York." },
 ];
 
-const WhyChooseUs = () => {
+export default function WhyChooseUs() {
   return (
     <section className="section-padding">
       <div className="container">
@@ -23,16 +26,29 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-lg overflow-hidden">
-              <img src={attorneyImg} alt="Attorney Adam Shapiro" className="w-full h-[500px] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-2xl font-serif font-bold text-foreground">Adam L. Shapiro</h3>
-                <p className="text-primary font-sans text-sm">Founder & Lead Attorney</p>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl glow-gold group">
+              <Image
+                src={attorneyImg}
+                alt="Attorney Adam Shapiro"
+                className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                width={600}
+                height={800}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-10 left-10 right-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <h3 className="text-3xl font-serif font-bold text-foreground">Adam L. Shapiro</h3>
+                  <p className="text-primary font-sans text-lg font-medium tracking-wide">Founder & Lead Attorney</p>
+                </motion.div>
               </div>
             </div>
             {/* Decorative gold line */}
-            <div className="absolute -left-4 top-8 bottom-8 w-1 bg-gradient-gold rounded-full hidden lg:block" />
+            <div className="absolute -left-6 top-10 bottom-10 w-1.5 bg-gradient-gold rounded-full hidden lg:block" />
+            <div className="absolute -right-6 -bottom-6 w-32 h-32 border-r-4 border-b-4 border-primary/20 rounded-br-2xl hidden lg:block" />
           </motion.div>
 
           {/* Content side */}
@@ -48,7 +64,7 @@ const WhyChooseUs = () => {
                 <span className="text-gradient-gold">Personal Injury</span> Lawyer
               </h2>
               <p className="text-muted-foreground font-sans mb-10 leading-relaxed">
-                Over 30 years of delivering outstanding results with a client-centric approach. 
+                Over 30 years of delivering outstanding results with a client-centric approach.
                 We offer comprehensive legal services tailored to your unique needs.
               </p>
             </motion.div>
@@ -78,6 +94,4 @@ const WhyChooseUs = () => {
       </div>
     </section>
   );
-};
-
-export default WhyChooseUs;
+}
